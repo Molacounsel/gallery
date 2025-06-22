@@ -1,26 +1,26 @@
-pipeline {
+pipeline{
   agent any
 
-  stages {
-    stage('Install Tools') {
-      steps {
-        sh 'npm install'
+  stages{
+    stage("Installing Tools"){
+      steps{
+        sh "npm install"
       }
     }
 
-    stage('Deploy to Render') {
-      steps {
-        sh 'curl -X POST $RENDER_DEPLOY_HOOK || echo "Manual deployment needed or hook missing."'
+    stage("Deploying to Render"){
+      steps{
+        sh "curl -X POST $RENDER_DEPLOY_HOOK."
       }
     }
   }
 
-  post {
-    success {
-      echo 'Pipeline completed successfully. Your Render deployment should now reflect MILESTONE 2.'
+  post{
+    success{
+      echo "Pipeline completed successfully. Render deployment should reflect MILESTONE 2."
     }
-    failure {
-      echo 'Pipeline failed. Check console output for details.'
+    failure{
+      echo "Pipeline failed. See console output for details."
     }
   }
 }
