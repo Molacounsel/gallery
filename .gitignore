@@ -1,3 +1,4 @@
 node_modules/
 .env.test
 jenkins.war
+.env
