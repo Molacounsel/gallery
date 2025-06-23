@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, {
