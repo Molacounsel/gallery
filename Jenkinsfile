@@ -38,7 +38,7 @@ pipeline{
 
     failure{
       echo "Pipeline failed. Skipping email notification (no SMTP configured)."
-      // To re-enable later, add SMTP config in Jenkins and uncomment below:
+      // Uncomment the following lines to enable email notifications:
       // mail to: "counselmola@gmail.com",
       //      subject: "Test Failure Notification",
       //      body: "The tests are unsuccessful. Please check the Jenkins console output for details."
