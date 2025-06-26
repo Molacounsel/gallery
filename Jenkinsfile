@@ -47,7 +47,10 @@ pipeline {
       slackSend(
         channel: '#robert_ip1',
         message: "The tests were successful. Build #${BUILD_ID} has been successfully deployed to Render: https://gallery-app-ah8y.onrender.com/",
-        color: 'good'
+        color: 'good',
+        tokenCredentialId: 'Slacker',
+        teamDomain: 'the-learning-devops'
+        
       )
       echo "Pipeline completed successfully."
     }
