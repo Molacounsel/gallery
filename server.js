@@ -12,6 +12,7 @@ let image = require('./routes/image');
 const app = express();
 
 // connecting the database
+
 const MONGODB_URI = process.env.MONGODB_URI || config.mongoURI[app.settings.env]
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
     if (err) {
@@ -37,15 +38,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // body parser middleware
-app.use(express.json())
-
-
+app.use(express.json());
 app.use('/', index);
 app.use('/image', image);
 
-
-
- 
 // fixed port configuration for Render
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () =>{
